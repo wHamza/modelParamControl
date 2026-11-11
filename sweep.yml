@@ -1,0 +1,19 @@
+program: train.py
+project: exp-tracking
+method: random
+metric:
+  name: test/acc
+  goal: maximize
+parameters:
+  lr:
+    distribution: log_uniform_values
+    min: 0.001
+    max: 0.1
+  weight_decay:
+    distribution: log_uniform_values
+    min: 1.0e-6
+    max: 5.0e-4
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
