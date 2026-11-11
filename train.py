@@ -30,12 +30,17 @@ def get_git_hash():
         hash += "-dirty"
     return hash
 def get_loaders(cfg):
+
+    MEAN = (0.4914, 0.4822, 0.4465)
+    STD = (0.2470, 0.2435, 0.2616)
+
+    
     with open(cfg, 'r') as f:
         data = yaml.load(f, Loader=yaml.SafeLoader)
     
     train_tf = v2.Compose([
             v2.ToTensor(),
-            v2.Normalize(),
+            v2.Normalize(mean=MEAN, std= STD),
         ])
     train_ds = datasets.CIFAR10("data", train = True,download=True, transform=train_tf)
     test_ds = datasets.CIFAR10("data", train = False, download = True, transform = train_tf)
