@@ -54,7 +54,7 @@ def get_loaders(cfg):
 
 
 def main():
-    pass
+    get_loaders('config.yml')
 
 
 if __name__ == "__main__":
