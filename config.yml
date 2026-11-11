@@ -1,0 +1,12 @@
+seed :
+  42 
+lr :
+  0.1
+batch_size:
+   128
+epoch:
+   5
+weight_decay:
+  5.0e-4
+width:
+   32
